@@ -12,3 +12,6 @@ target_link_libraries(${name} "rover-framework")
 target_include_directories(${name} PUBLIC "../rover-framework/include")
 
 set_target_properties(${name} PROPERTIES FOLDER "rover")
+
+cotire(${name})
+set_compiler_warnings(${name})
