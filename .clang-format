@@ -1,0 +1,7 @@
+﻿BasedOnStyle: Chromium
+AccessModifierOffset: '-4'
+AllowShortFunctionsOnASingleLine: false
+IndentWidth: '4'
+Language: Cpp
+TabWidth: '4'
+UseTab: Always
