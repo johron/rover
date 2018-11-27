@@ -31,4 +31,6 @@ set_target_properties(gtest_main PROPERTIES FOLDER ${GTEST_FOLDER})
 set_target_properties(gmock PROPERTIES FOLDER ${GTEST_FOLDER})
 set_target_properties(gmock_main PROPERTIES FOLDER ${GTEST_FOLDER})
 
+include(GoogleTest)
+
 include_directories("${gtest_SOURCE_DIR}/include")

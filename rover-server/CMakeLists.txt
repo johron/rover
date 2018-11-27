@@ -1,11 +1,11 @@
-set(name "rover-runner")
+set(name "rover-server")
 
 set(src_files
     "src/main.cpp")
 
 add_executable(${name} ${src_files})
 
-source_group("src\\main" FILES ${src_files})
+source_group("src" FILES ${src_files})
 
 target_link_libraries(${name} "rover-framework")
 

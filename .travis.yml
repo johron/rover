@@ -1,0 +1,7 @@
+language: cpp
+os: windows
+script:
+ - cmake . -B.build -Ax64
+ - cmake --build .build
+ - cd .build
+ - ctest .
