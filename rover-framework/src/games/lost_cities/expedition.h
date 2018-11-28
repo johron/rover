@@ -31,5 +31,11 @@ struct expedition_area : public stack_group<expedition> {
 	[[nodiscard]] int score(color_t color) const { 
 		return m_cards[color].score();
 	}
+
+	[[nodiscard]] int total_score() const {
+		return m_cards[color::blue].score() + m_cards[color::green].score() + m_cards[color::red].score() +
+			   m_cards[color::yellow].score() + m_cards[color::white].score();
+
+	}
 };
 }  // namespace rover::lost_cities
