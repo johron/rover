@@ -3,30 +3,8 @@
 namespace rover::lost_cities {
 
 using value_t = uint8_t;
-
-struct color_t { 
-	enum class value : uint8_t { blue, green, red, yellow, white };
-	constexpr explicit color_t(value _color)
-		: m_color(_color) { }
-
-	[[nodiscard]] constexpr bool operator==(const color_t& other) const {
-		return m_color == other.m_color;
-	}
-
-	[[nodiscard]] constexpr bool operator!=(const color_t& other) const {
-		return m_color != other.m_color;
-	}
-private:
-	value m_color;
-};
-
-namespace color {
-constexpr color_t blue = color_t(color_t::value::blue);
-constexpr color_t green = color_t(color_t::value::green);
-constexpr color_t red = color_t(color_t::value::red);
-constexpr color_t yellow = color_t(color_t::value::yellow);
-constexpr color_t white = color_t(color_t::value::white);
-}  // namespace color
+using color_t = uint8_t;
+enum color { blue, green, red, yellow, white, __size__ };
 
 
 struct card {

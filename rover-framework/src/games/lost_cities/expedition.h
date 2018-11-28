@@ -1,26 +1,10 @@
 #pragma once
 
 namespace rover::lost_cities {
-struct expedition {
+struct expedition : public card_stack {
 	explicit expedition(color_t color)
-		: m_color(color) {}
-
-	void add_card(card&& card){
-		assert(can_add(card) && "expedition::add() called with incorrect color");
-		m_cards.emplace_back(card);
-	}
-
-	[[nodiscard]] bool can_add(const card& card) const {
-		return card.color() == m_color && (m_cards.empty() ? true : card >= m_cards.back());
-	}
-
-	[[nodiscard]] size_t size() const {
-		return m_cards.size();
-	}
-
-	[[nodiscard]] bool empty() const {
-		return m_cards.empty();
-	}
+		: card_stack(color, [this](const card& card) {
+			return card.color() == m_color && (m_cards.empty() ? true : card >= m_cards.back()); }) {}
 
 	[[nodiscard]] int score() const {
 		if (m_cards.empty()) {
@@ -41,14 +25,11 @@ struct expedition {
 			return (total_sum * multiplier) + bonus;
 		}
 	}
-
-	[[nodiscard]] const color_t& color() const {
-		return m_color;
-	}
-
-private:
-	std::vector<card> m_cards;
-	color_t m_color;
 };
 
+struct expedition_area : public stack_group<expedition> {
+	[[nodiscard]] int score(color_t color) const { 
+		return m_cards[color].score();
+	}
+};
 }  // namespace rover::lost_cities

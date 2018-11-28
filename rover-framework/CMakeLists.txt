@@ -16,10 +16,12 @@ set(src_runner
 	"src/runner/dummy.h")
 
 set(src_game_lost_cities
+	"src/games/lost_cities/containers.h"
 	"src/games/lost_cities/cards.h"
 	"src/games/lost_cities/deck.h"
 	"src/games/lost_cities/discard.h"
 	"src/games/lost_cities/expedition.h"
+	"src/games/lost_cities/player_state.h"
 	"src/games/lost_cities/lost_cities.h")
 
 set(src_task

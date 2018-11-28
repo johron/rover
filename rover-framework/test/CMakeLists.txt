@@ -7,6 +7,7 @@ set(src_sample
 	"src/sample/cards.cpp"
 	"src/sample/deck.cpp"
 	"src/sample/discard.cpp"
+	"src/sample/player_state.cpp"
 	"src/sample/expedition.cpp")
 
 set(src_files
