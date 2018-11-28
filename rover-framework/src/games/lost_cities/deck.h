@@ -13,7 +13,7 @@ struct deck {
 		return card;
 	};
 
-	[[nodiscard]] const card& peek() const { 
+	[[nodiscard]] const card& peek() { 
 		assert(!empty() && "peeking on empty deck");
 		return m_cards.back(); 
 	};

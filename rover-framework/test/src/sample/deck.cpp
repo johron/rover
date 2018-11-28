@@ -15,10 +15,10 @@ TEST(deck, make_deck) {
 }
 
 TEST(deck, peek) {
-	const auto one_card_deck = deck{card(color::green, 2)};
+	auto one_card_deck = deck{card(color::green, 2)};
 	EXPECT_EQ(one_card_deck.peek(), card(color::green, 2));
 
-	const auto empty_deck = deck{};
+	auto empty_deck = deck{};
 	EXPECT_DEATH([[maybe_unused]] const auto& unused = empty_deck.peek(), "peeking on empty deck");
 }
 

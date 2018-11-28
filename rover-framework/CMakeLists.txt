@@ -17,11 +17,9 @@ set(src_runner
 
 set(src_game_lost_cities
 	"src/games/lost_cities/cards.h"
-	"src/games/lost_cities/card_stack.h"
 	"src/games/lost_cities/deck.h"
 	"src/games/lost_cities/discard.h"
 	"src/games/lost_cities/expedition.h"
-	"src/games/lost_cities/player_area.h"
 	"src/games/lost_cities/lost_cities.h")
 
 set(src_task
