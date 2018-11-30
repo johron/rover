@@ -2,9 +2,9 @@
 #include "containers.h"
 
 namespace rover::lost_cities {
-struct discard_pile : public card_stack {
+struct discard_pile : public colored_card_area {
 	explicit discard_pile(const color_t& color)
-		: card_stack(color, [this](const card& card) { return card.color() == m_color; }) {}
+		: colored_card_area(color) {}
 
 	[[nodiscard]] const card& top() const {
 		assert(!empty() && "discard::top() called on empty discard");
@@ -16,6 +16,10 @@ struct discard_pile : public card_stack {
 		card card = m_cards.back();
 		m_cards.pop_back();
 		return std::move(card);
+	}
+
+	[[nodiscard]] virtual bool can_add(const card& card) const override {
+		return card.color() == m_color;
 	}
 };
 

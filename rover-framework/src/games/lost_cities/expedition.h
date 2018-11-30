@@ -1,10 +1,9 @@
 #pragma once
 
 namespace rover::lost_cities {
-struct expedition : public card_stack {
+struct expedition : public colored_card_area {
 	explicit expedition(color_t color)
-		: card_stack(color, [this](const card& card) {
-			return card.color() == m_color && (m_cards.empty() ? true : card >= m_cards.back()); }) {}
+		: colored_card_area(color) {}
 
 	[[nodiscard]] int score() const {
 		if (m_cards.empty()) {
@@ -24,6 +23,10 @@ struct expedition : public card_stack {
 
 			return (total_sum * multiplier) + bonus;
 		}
+	}
+
+	[[nodiscard]] virtual bool can_add(const card& card) const override {
+		return card.color() == m_color && (m_cards.empty() ? true : card >= m_cards.back());
 	}
 };
 

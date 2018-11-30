@@ -32,20 +32,15 @@ protected:
 };
 
 
-struct card_stack {
-	using add_validator = std::function<bool(const card&)>;
-	explicit card_stack(color_t color, add_validator&& validator)
-		: m_validator(std::move(validator))
-		, m_color(color) {}
+struct card_area {
+	virtual ~card_area() = default;
 
 	void add_card(card&& card) {
 		assert(can_add(card) && "expedition::add() called with incorrect color");
 		m_cards.emplace_back(std::move(card));
 	}
 
-	[[nodiscard]] bool can_add(const card& card) const {
-		return m_validator(card);
-	}
+	[[nodiscard]] virtual bool can_add(const card& card) const  = 0;
 
 	[[nodiscard]] size_t size() const {
 		return m_cards.size();
@@ -55,13 +50,20 @@ struct card_stack {
 		return m_cards.empty(); 
 	}
 
-	[[nodiscard]] const color_t& color() const { 
-		return m_color; 
-	}
-
 protected: 
 	std::vector<card> m_cards;
-	add_validator m_validator;
+};
+
+struct colored_card_area : public card_area {
+	explicit colored_card_area(color_t color) 
+		: m_color(color) {}
+
+	[[nodiscard]] const color_t& color() const {
+		return m_color;
+	}
+
+protected:
 	color_t m_color;
+
 };
 }  // namespace rover::lost_cities

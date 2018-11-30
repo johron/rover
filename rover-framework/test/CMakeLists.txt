@@ -7,6 +7,7 @@ set(src_sample
 	"src/sample/cards.cpp"
 	"src/sample/deck.cpp"
 	"src/sample/discard.cpp"
+	"src/sample/hand.cpp"
 	"src/sample/player_state.cpp"
 	"src/sample/expedition.cpp")
 
@@ -29,7 +30,6 @@ target_link_libraries(${name} PRIVATE "gtest_main")
 target_include_directories(${name} PUBLIC "../include/")
 
 set_target_properties(${name} PROPERTIES FOLDER "rover")
-#set_target_properties(${name} PROPERTIES COTIRE_ADD_UNITY_BUILD FALSE)
 set_target_properties(${name} PROPERTIES COTIRE_CXX_PREFIX_HEADER_INIT ${src_precompiled})
 
 gtest_discover_tests(${name})

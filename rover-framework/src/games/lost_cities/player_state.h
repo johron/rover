@@ -10,4 +10,11 @@ struct player_state {
 	discard_area& m_discard;
 	expedition_area m_expeditions;
 };
+
+struct game_state {
+	template <class action_t>
+	void execute(action_t&& action) {
+
+	}
+};
 }  // namespace rover::lost_cities
