@@ -17,3 +17,4 @@
 #include <algorithm>
 #include <random>
 #include <optional>
+#include <functional>

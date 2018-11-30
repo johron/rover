@@ -47,6 +47,9 @@ source_group("src\\display" FILES ${src_display})
 source_group("src\\solver" FILES ${src_solver})
 source_group("src\\games\\lost_cities" FILES ${src_game_lost_cities})
 
+target_link_libraries(${name} PRIVATE "rover-coverage")
+target_link_libraries(${name} PRIVATE "rover-warnings")
+
 target_compile_features(${name} INTERFACE cxx_std_17)
 
 set_target_properties(${name} PROPERTIES FOLDER "rover")
@@ -54,7 +57,6 @@ set_target_properties(${name} PROPERTIES LINKER_LANGUAGE CXX)
 set_target_properties(${name} PROPERTIES COTIRE_CXX_PREFIX_HEADER_INIT ${src_precompiled})
 
 cotire(${name})
-set_compiler_warnings(${name})
 
 option(ADD_ROVER_TESTS "Adds rover tests to project" ON)
 
