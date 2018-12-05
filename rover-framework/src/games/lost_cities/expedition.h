@@ -1,4 +1,5 @@
 #pragma once
+#include "containers.h"
 
 namespace rover::lost_cities {
 struct expedition : public colored_card_area {
@@ -38,7 +39,6 @@ struct expedition_area : public stack_group<expedition> {
 	[[nodiscard]] int total_score() const {
 		return m_cards[color::blue].score() + m_cards[color::green].score() + m_cards[color::red].score() +
 			   m_cards[color::yellow].score() + m_cards[color::white].score();
-
 	}
 };
 }  // namespace rover::lost_cities

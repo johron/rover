@@ -13,3 +13,14 @@ TEST(hand, add_card) {
 	player_hand.add_card(card(color::green, 4));
 	EXPECT_EQ(player_hand.size(), 2);
 }
+
+TEST(hand, remove_card) {
+	hand player_hand;
+	player_hand.add_card(card(color::blue, 2));
+	EXPECT_TRUE(player_hand.contains(card(color::blue, 2)));
+	EXPECT_FALSE(player_hand.contains(card(color::blue, 3)));
+	EXPECT_EQ(player_hand.size(), 1);
+	player_hand.remove_card(card(color::blue, 2));
+	EXPECT_FALSE(player_hand.contains(card(color::blue, 2)));
+	EXPECT_EQ(player_hand.size(), 0);
+}

@@ -1,20 +1,17 @@
 #pragma once
-#include "discard.h"
 #include "expedition.h"
+#include "hand.h"
 
 namespace rover::lost_cities {
-struct player_state {
-	player_state(discard_area& discard)
-		: m_discard(discard) {}
+using player_id = int64_t;
 
-	discard_area& m_discard;
+struct player_state {
+	player_state(const player_id& id)
+		: m_id(id) {}
+
+	player_id m_id;
+	hand m_hand;
 	expedition_area m_expeditions;
 };
 
-struct game_state {
-	template <class action_t>
-	void execute(action_t&& action) {
-
-	}
-};
 }  // namespace rover::lost_cities

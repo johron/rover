@@ -10,6 +10,7 @@ struct stack_group {
 				  container_t(color::red),
 				  container_t(color::yellow),
 				  container_t(color::white)} {}
+	stack_group(stack_group&& other) = delete;
 
 	[[nodiscard]] size_t size(color_t color) const {
 		return m_cards[color].size();
@@ -33,8 +34,10 @@ protected:
 
 
 struct card_area {
+	card_area() = default;
 	virtual ~card_area() = default;
-
+	card_area(card_area&& other) = delete;
+	
 	void add_card(card&& card) {
 		assert(can_add(card) && "expedition::add() called with incorrect color");
 		m_cards.emplace_back(std::move(card));

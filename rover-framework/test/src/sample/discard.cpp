@@ -25,6 +25,17 @@ TEST(discard_pile, top) {
 	discard_pile blue_discard(color::blue);
 	blue_discard.add_card(card(color::blue, 2));
 	EXPECT_EQ(blue_discard.top(), card(color::blue, 2));
+	discard_pile empty_discard(color::green);
+	EXPECT_DEATH([[maybe_unused]] auto unused = empty_discard.top(), "discard::top, called on empty discard");
+}
+
+TEST(discard_pile, draw_card) {
+	discard_pile blue_discard(color::blue);
+	blue_discard.add_card(card(color::blue, 2));
+	const auto top_card = blue_discard.draw();
+	EXPECT_EQ(top_card, card(color::blue, 2));
+	EXPECT_TRUE(blue_discard.empty());
+	EXPECT_DEATH([[maybe_unused]] auto unused = blue_discard.draw(), "discard::draw, called on empty discard");
 }
 
 TEST(discard_area, add_card) {
