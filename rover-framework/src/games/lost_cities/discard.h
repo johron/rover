@@ -24,8 +24,8 @@ struct discard_pile : public colored_card_area {
 };
 
 struct discard_area : public stack_group<discard_pile> {
-	void add_card(card&& card) {
-		m_cards[card.color()].add_card(std::move(card));
+	void add(card&& card) {
+		m_cards[card.color()].add(std::move(card));
 	}
 
 	[[nodiscard]] const card& top(color_t color) const {

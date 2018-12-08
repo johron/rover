@@ -6,7 +6,6 @@ using value_t = uint8_t;
 using color_t = uint8_t;
 enum color { blue, green, red, yellow, white, __size__ };
 
-
 struct card {
 	constexpr card(color_t _color, value_t _value)
 		: m_color(_color)
@@ -46,9 +45,9 @@ struct card {
 		return *this < other || *this == other;
 	}
 
+
 private:
 	color_t m_color;
 	value_t m_value;
 };
-
 }  // namespace rover::lost_cities

@@ -6,11 +6,12 @@ set(src_precompiled
 set(src_sample
 	"src/sample/actions.cpp"
 	"src/sample/cards.cpp"
+	"src/sample/card_storage.cpp"
 	"src/sample/deck.cpp"
 	"src/sample/discard.cpp"
 	"src/sample/game.cpp"
-	"src/sample/hand.cpp"
-	"src/sample/player.cpp"
+	"src/sample/game_session.cpp"
+	"src/sample/player_hand.cpp"
 	"src/sample/expedition.cpp")
 
 set(src_files

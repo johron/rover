@@ -3,8 +3,8 @@
 
 namespace rover::lost_cities {
 struct expedition : public colored_card_area {
-	explicit expedition(color_t color)
-		: colored_card_area(color) {}
+	expedition(color_t color)
+		: colored_card_area(color, {}) {}
 
 	[[nodiscard]] int score() const {
 		if (m_cards.empty()) {
