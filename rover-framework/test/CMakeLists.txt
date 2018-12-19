@@ -3,25 +3,30 @@ set(name "rover-framework-tests")
 set(src_precompiled
 	"../src/precompiled/precompiled.h")
 
-set(src_sample
-	"src/sample/actions.cpp"
-	"src/sample/cards.cpp"
-	"src/sample/card_storage.cpp"
-	"src/sample/deck.cpp"
-	"src/sample/discard.cpp"
-	"src/sample/game.cpp"
-	"src/sample/game_session.cpp"
-	"src/sample/player_hand.cpp"
-	"src/sample/expedition.cpp")
+set(src_lost_cities
+	"src/lost_cities/actions.cpp"
+	"src/lost_cities/cards.cpp"
+	"src/lost_cities/card_storage.cpp"
+	"src/lost_cities/deck.cpp"
+	"src/lost_cities/discard.cpp"
+	"src/lost_cities/game.cpp"
+	"src/lost_cities/game_session.cpp"
+	"src/lost_cities/player_hand.cpp"
+	"src/lost_cities/expedition.cpp")
+
+set(src_server
+	"src/server/server.cpp")
 
 set(src_files
 	${src_precompiled}
-	${src_sample})
+	${src_server}
+	${src_lost_cities})
 
 add_executable(${name} ${src_files})
 
 source_group("src\\precompiled" FILES ${src_precompiled})
-source_group("src\\sample" FILES ${src_sample})
+source_group("src\\lost-cities" FILES ${src_lost_cities})
+source_group("src\\server" FILES ${src_server})
 
 target_compile_features(${name} PUBLIC cxx_std_17)
 

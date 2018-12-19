@@ -1,5 +1,5 @@
 #include "gtest/gtest.h"
-#include "rover/framework.h"
+#include "../src/games/lost_cities/player_hand.h"
 
 using namespace rover::lost_cities;
 

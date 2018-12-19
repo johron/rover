@@ -1,5 +1,7 @@
 #include "gtest/gtest.h"
-#include "rover/framework.h"
+#include "../src/games/lost_cities/game_state.h"
+#include "../src/games/lost_cities/player_actions.h"
+
 
 using namespace rover::lost_cities;
 

@@ -1,4 +1,5 @@
 #pragma once
+#include <chrono>
 
 namespace rover::lost_cities::util {
 [[nodiscard]] inline uint32_t time_based_seed() {

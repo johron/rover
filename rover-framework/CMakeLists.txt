@@ -7,15 +7,10 @@ set(src_include
 set(src_precompiled
 	"src/precompiled/precompiled.h")
 
-set(src_display
-	"src/display/display.h")
+set(src_third_party
+	"src/third_party/asio.h")
 
-set(src_runner
-	"src/runner/runner.cpp"
-	"src/runner/runner.h"
-	"src/runner/dummy.h")
-
-set(src_game_lost_cities
+set(src_lost_cities
 	"src/games/lost_cities/action_detail.h"
 	"src/games/lost_cities/action_detail.cpp"
 	"src/games/lost_cities/containers.h"
@@ -33,31 +28,28 @@ set(src_game_lost_cities
 	"src/games/lost_cities/lost_cities.h"
 	"src/games/lost_cities/utils.h")
 
-set(src_task
-	"src/task/task_descriptor.h")
-
-set(src_solver
-	"src/solver/solver.h")
+set(src_server
+	"src/server/server.h")
 
 set(src_files 
 	${src_include}
 	${src_precompiled}
-	${src_display}
-	${src_runner}
-	${src_solver}
-	${src_game_lost_cities})
+	${src_server}
+	${src_lost_cities})
 
 add_library(${name} ${src_files})
 
 source_group("include" FILES ${src_include})
 source_group("src\\precompiled" FILES ${src_precompiled})
-source_group("src\\runner" FILES ${src_runner})
-source_group("src\\display" FILES ${src_display})
-source_group("src\\solver" FILES ${src_solver})
-source_group("src\\games\\lost_cities" FILES ${src_game_lost_cities})
+source_group("src\\server" FILES ${src_server})
+source_group("src\\games\\lost_cities" FILES ${src_lost_cities})
 
-target_link_libraries(${name} PRIVATE "rover-coverage")
-target_link_libraries(${name} PRIVATE "rover-warnings")
+find_package(Threads REQUIRED)
+
+target_link_libraries(${name} PUBLIC Threads::Threads)
+target_link_libraries(${name} PUBLIC "rover-coverage")
+target_link_libraries(${name} PUBLIC "rover-warnings")
+target_link_libraries(${name} PUBLIC "networking-ts")
 
 target_compile_features(${name} INTERFACE cxx_std_17)
 

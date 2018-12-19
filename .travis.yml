@@ -18,7 +18,8 @@ before_script:
 script:
   - export CXX=$CXX_EXE
   - export CC=$CC_EXE
-  - cmake $CMAKE_OPTIONS .
-  - cmake --build .
-  - ctest
+  - mkdir -p build && cd build
+  - cmake $CMAKE_OPTIONS ..
+  - make -j4
+  - ctest .
   - bash <(curl -s https://codecov.io/bash) -x $GCOV

@@ -18,7 +18,7 @@ struct discard_pile : public colored_card_area {
 		return card;
 	}
 
-	[[nodiscard]] virtual bool can_add(const card& card) const override {
+	[[nodiscard]] bool can_add(const card& card) const override {
 		return card.color() == m_color;
 	}
 };

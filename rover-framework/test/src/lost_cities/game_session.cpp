@@ -1,6 +1,6 @@
 #include "gtest/gtest.h"
-#include "rover/framework.h"
 #include "../src/games/lost_cities/default_controller.h"
+#include "../src/games/lost_cities/game_session.h"
 
 using namespace rover::lost_cities;
 

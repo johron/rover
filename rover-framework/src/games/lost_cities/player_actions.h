@@ -1,4 +1,5 @@
 #pragma once
+#include "action_detail.h"
 
 namespace rover::lost_cities {
 namespace action {
@@ -8,7 +9,10 @@ struct fallback_action {
 		: m_primary(std::move(primary))
 		, m_fallback(std::move(fallback)) {}
 
-	bool apply(game_state& state) { return m_primary.apply(state) ? true : m_fallback.apply(state); }
+	template <class state>
+	bool apply(state& game_state) {
+		return m_primary.apply(game_state) ? true : m_fallback.apply(game_state);
+	}
 
 	primary_t m_primary;
 	fallback_t m_fallback;

@@ -1,5 +1,6 @@
 #pragma once
 #include "player_controller.h"
+#include "game_state.h"
 
 namespace rover::lost_cities {
 struct default_controller : public player_controller {

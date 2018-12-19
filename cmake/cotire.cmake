@@ -1,6 +1,7 @@
+message("-- External Project: cotire")
 set(COTIRE_PROJECT_FILE "cmake/cotire.cmake.in")
 
-set(COTIRE_DIR ${PROJECT_BINARY_DIR}/cotire/download)
+set(COTIRE_DIR ${PROJECT_BINARY_DIR}/third_party/cotire/download)
 configure_file(${COTIRE_PROJECT_FILE} ${COTIRE_DIR}/CMakeLists.txt)
 execute_process(COMMAND ${CMAKE_COMMAND} -G "${CMAKE_GENERATOR}" .
         RESULT_VARIABLE result
@@ -18,5 +19,5 @@ if(result)
     message(FATAL_ERROR "Build step for cotire failed: ${result}")
 endif()
 
-set(COTIRE_TARGETS_FOLDER "third-party//cotire")
-include(${PROJECT_BINARY_DIR}/cotire/src/CMake/cotire.cmake)
+set(COTIRE_TARGETS_FOLDER "third_party//cotire")
+include(${PROJECT_BINARY_DIR}/third_party/cotire/src/CMake/cotire.cmake)

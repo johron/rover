@@ -1,5 +1,5 @@
 #include "gtest/gtest.h"
-#include "rover/framework.h"
+#include "../src/games/lost_cities/deck.h"
 
 using namespace rover::lost_cities;
 
@@ -31,8 +31,8 @@ TEST(deck, shuffle) {
 
 TEST(deck, draw) {
 	auto deck = make_deck();
-	const auto initial_size = deck.size();
-	for (auto i = 1; i <= initial_size; ++i) {
+	const size_t initial_size = deck.size();
+	for (size_t i = 1; i <= initial_size; ++i) {
 		const auto top_card = deck.peek();
 		const auto drawn_card = deck.draw();
 		EXPECT_EQ(deck.size(), initial_size - i);
