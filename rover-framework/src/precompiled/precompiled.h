@@ -23,7 +23,8 @@
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wuseless-cast"
 #pragma GCC diagnostic push
-#include <experimental/net>
+//#include <boost/asio.hpp>
+//#include <boost/beast.hpp>
 #pragma GCC diagnostic pop // "-Wuseless-cast"
 #pragma GCC diagnostic pop // "-Wold-style-cast"
 #pragma GCC diagnostic pop // "-Wsign-conversion"
@@ -35,9 +36,11 @@
 #pragma warning(disable : 4619) // #pragma warning: there is no warning number '4675'
 #pragma warning(disable : 4996) // warning C4996: 'std::result_of': warning STL4014: std::result_of and std::result_of_t are deprecated in C++17. They are superseded by std::invoke_result and std::invoke_result_t. You can define _SILENCE_CXX17_RESULT_OF_DEPRECATION_WARNING or _SILENCE_ALL_CXX17_DEPRECATION_WARNINGS to acknowledge that you have received this warning.
 #pragma warning(disable : 4242) // warning C4242: '=': conversion from 'int' to 'ADDRESS_FAMILY', possible loss of data
+#pragma warning(disable : 4265) // warning C4265: 'boost::exception_detail::error_info_container': class has virtual functions, but destructor is not virtual
 #if _WIN32 || _WIN64
-#include "sdkddkver.h"
+//#include "sdkddkver.h"
 #endif
-#include <experimental/net>
+//#include<boost / asio.hpp>
+//#include <boost/beast.hpp>
 #pragma warning(pop)
 #endif

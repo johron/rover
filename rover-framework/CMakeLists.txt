@@ -45,11 +45,11 @@ source_group("src\\server" FILES ${src_server})
 source_group("src\\games\\lost_cities" FILES ${src_lost_cities})
 
 find_package(Threads REQUIRED)
+find_package(Boost 1.68 REQUIRED)
 
-target_link_libraries(${name} PUBLIC Threads::Threads)
+target_link_libraries(${name} PRIVATE Threads::Threads)
 target_link_libraries(${name} PUBLIC "rover-coverage")
 target_link_libraries(${name} PUBLIC "rover-warnings")
-target_link_libraries(${name} PUBLIC "networking-ts")
 
 target_compile_features(${name} INTERFACE cxx_std_17)
 

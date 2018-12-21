@@ -8,8 +8,6 @@ set_property(GLOBAL PROPERTY CMAKE_EXPORT_COMPILE_COMMANDS ON)
 include("cmake/code_coverage.cmake")
 include("cmake/compiler_features.cmake")
 include("cmake/compiler_warnings.cmake")
-include("cmake/googletest.cmake")
-include("cmake/networking-ts.cmake")
 include("cmake/cotire.cmake")
 
 add_subdirectory("rover-framework")

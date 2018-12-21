@@ -1,5 +1,4 @@
 #pragma once
-#include "experimental/net"
 
 namespace rover {
 struct server {
@@ -11,7 +10,6 @@ struct server {
 // 
 // 		context.run();
 
-		std::experimental::net::io_context context;
 	}
 };
 }  // namespace rover

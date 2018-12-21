@@ -30,10 +30,13 @@ source_group("src\\server" FILES ${src_server})
 
 target_compile_features(${name} PUBLIC cxx_std_17)
 
+find_package(GTest REQUIRED)
+include(GoogleTest)
+
 target_link_libraries(${name} PRIVATE "rover-coverage")
 target_link_libraries(${name} PRIVATE "rover-warnings")
 target_link_libraries(${name} PRIVATE "rover-framework")
-target_link_libraries(${name} PRIVATE "gtest_main")
+target_link_libraries(${name} PRIVATE GTest::Main)
 
 target_include_directories(${name} PUBLIC "../include/")
 

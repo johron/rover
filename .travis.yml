@@ -6,11 +6,13 @@ addons:
   apt:
     sources:
       - ubuntu-toolchain-r-test
+      - sourceline: 'ppa:mhier/libboost-latest'
     packages:
       - libx11-dev
       - libxrandr-dev
       - libudev-dev
       - g++-7
+      - boost1.68
 
 before_script:
   - sudo -H pip install coverage
