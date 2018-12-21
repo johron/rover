@@ -17,6 +17,10 @@ addons:
 
 install:
   - sudo -H pip install coverage
+  - cd /usr/src/googletest/googletest && sudo mkdir build && cd build
+  - sudo cmake .. && sudo make
+  - sudo mkdir /usr/lib/googletest
+  - sudo cp libgtest* /usr/lib/googletest/
 
 script:
   - export CXX=$CXX_EXE
