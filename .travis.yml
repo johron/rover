@@ -13,12 +13,10 @@ addons:
       - libudev-dev
       - g++-7
       - boost1.68
+      - libgtest-dev
 
 install:
   - sudo -H pip install coverage
-  - sudo apt-get install libgtest-dev && cd /usr/src/googletest/googletest && sudo mkdir build && cd build
-  - sudo cmake .. && sudo make
-  - sudo cp libgtest* /usr/lib
 
 script:
   - export CXX=$CXX_EXE
